@@ -1,35 +1,54 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState } from 'react';
 import './App.css'
+import StopWatch from './Components/StopWatch/StopWatch';
+import Counter from './Components/CounterClock/Counter';
+import Conditional from './Components/ConditionalRender/Conditional';
+import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
+import NavBar from './Components/Navbar/NavBar';
+import Register from './Pages/Register';
+import Home from './Pages/Home';
+import Login from './Pages/Login';
+import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
+import Form from './Components/Form/Form';
+import LoginForm from './Components/LoginForm.jsx/LoginForm';
+import User from './Crud/user';
+import UpdateUser from './Crud/UpdateUser';
+import CreateUser from './Crud/CreateUser';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
+  let [user, SetUser] = useState(false)
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      {/* <StopWatch /> */}
+      {/* <Counter /> */}
+      {/* <Conditional/> */}
+      {/* <LoginForm></LoginForm> */}
+      {/* <Form></Form> */}
+
+      {/* <Router>
+        <NavBar user={user}></NavBar>
+        <Routes>
+          <Route path='/' element={
+            <ProtectedRoute user={user}>
+              <Home />
+            </ProtectedRoute>
+          }>
+          </Route>
+          <Route path='/login' element={<Login setuser={SetUser} user={user} />} />
+          <Route path='/register' element={<Register />} />
+        </Routes>
+      </Router> */}
+
+      <Router>
+        <Routes>
+          <Route path='/' element={<User />} />
+          <Route path='/updateuser/:id' element={<UpdateUser />} />
+          <Route path='/createUser' element={<CreateUser />} />
+        </Routes>
+      </Router>
     </>
   )
 }
 
 export default App
+
