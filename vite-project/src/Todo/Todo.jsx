@@ -109,8 +109,8 @@ const Todo = () => {
                                     <td>{user.title}</td>
                                     <td>{user.description}</td>
                                     <td>
-                                        <button className='btn btn-primary' onClick={() => UpdateUser(user, index)}>Update</button>
-                                        <button className='btn btn-success' onClick={() => deleteuser(user.id)}>Delete</button>
+                                        <button className='btn btn-primary' onClick={() => UpdateUser(user, index)} disabled={user.completed == true}>Update</button>
+                                        <button className='btn btn-success' onClick={() => deleteuser(user.id)} disabled={user.completed == true}>Delete</button>
                                     </td>
                                 </tr>
                             )
