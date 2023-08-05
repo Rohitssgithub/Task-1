@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 
 const ProtectedRoute = ({ user, children }) => {
     // let [user, SetUser] = useState(false)
@@ -7,6 +7,10 @@ const ProtectedRoute = ({ user, children }) => {
         return <Navigate to="/login" replace></Navigate>;
     }
     return children;
+    // let user = true
+    // return (
+    //     user ? <Outlet /> : <Navigate to='login' />
+    // )
 
 }
 
