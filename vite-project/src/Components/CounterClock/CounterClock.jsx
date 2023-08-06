@@ -1,62 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
-const CountdownClock = () => {
-    const [targetTime, setTargetTime] = useState(null);
-    const [timeRemaining, setTimeRemaining] = useState(null);
+const CounterClock = () => {
 
-    const handleStart = () => {
-        if (targetTime) {
-            const currentTime = new Date().getTime();
-            const timeDifference = Math.max(targetTime - currentTime, 0);
-            setTimeRemaining(timeDifference);
+    let [day, SetDay] = useState(0)
+    let [hour, SetHour] = useState(0)
+    let [min, Setmin] = useState(0)
+    let [sec, Setsec] = useState(0)
+
+    const deadline = 'August 6, 2023 16:37:05';
+    let interval
+
+    const getTime = () => {
+        const time = Date.parse(deadline) - Date.now();
+        console.log(time)
+        if (time <= 0) {
+            clearInterval(interval);
+            SetDay(0);
+            SetHour(0);
+            Setmin(0);
+            Setsec(0);
         }
-    };
-
-    const handleInputChange = (event) => {
-        const { value } = event.target;
-        const timeInMilliseconds = Date.parse(value);
-
-        if (!isNaN(timeInMilliseconds) && timeInMilliseconds >= Date.now()) {
-            setTargetTime(timeInMilliseconds);
-        } else {
-            setTargetTime(null);
+        else {
+            SetDay(Math.floor(time / (1000 * 60 * 60 * 24)))
+            SetHour(Math.floor(time / (1000 * 60 * 60) % 24))
+            Setmin(Math.floor((time / 1000 / 60) % 60))
+            Setsec(Math.floor((time / 1000) % 60))
         }
-    };
+
+
+    }
 
     useEffect(() => {
-        let intervalId;
-
-        if (timeRemaining !== null && timeRemaining > 0) {
-            intervalId = setInterval(() => {
-                setTimeRemaining(prevTimeRemaining => Math.max(prevTimeRemaining - 1000, 0));
-            }, 1000);
-        }
-
-        return () => {
-            clearInterval(intervalId);
-        };
-    }, [timeRemaining]);
-
-    const formatTime = (timeInMilliseconds) => {
-        const seconds = Math.floor(timeInMilliseconds / 1000);
-        const minutes = Math.floor(seconds / 60);
-        const hours = Math.floor(minutes / 60);
-
-        return `${hours.toString().padStart(2, '0')}:${(minutes % 60).toString().padStart(2, '0')}:${(seconds % 60).toString().padStart(2, '0')}`;
-    };
+        interval = setInterval(() => {
+            getTime()
+        }, 1000);
+        return () => clearInterval(interval)
+    }, [])
 
     return (
-        <div className="countdown-clock">
-            <h1>Countdown Clock</h1>
-            <input type="datetime-local" onChange={handleInputChange} />
-            <button onClick={handleStart}>Start Countdown</button>
-            {timeRemaining !== null && timeRemaining > 0 && (
-                <div className="time-remaining">
-                    Time Remaining: {formatTime(timeRemaining)}
-                </div>
-            )}
-        </div>
-    );
-};
+        <>
 
-export default CountdownClock;
+            <p>{day}:days</p>
+            <p>{hour}:hour</p>
+            <p>{min}:min</p>
+            <p>{sec}:sec</p>
+
+        </>
+    )
+}
+
+export default CounterClock

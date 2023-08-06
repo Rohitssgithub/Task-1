@@ -18,6 +18,7 @@ const MyHome = React.lazy(() => import('./Pages/Home'));
 import FormValidation from './FormValidation/FormValidation';
 import SiginInForm from './FormValidation/SiginInForm';
 import Todo from './Todo/Todo';
+import CounterClock from './Components/CounterClock/CounterClock';
 
 
 const App = () => {
@@ -25,13 +26,14 @@ const App = () => {
   return (
     <>
       {/* <StopWatch /> */}
-      {/* <Counter /> */}
+      <Counter />
+      <CounterClock/>
       {/* <Conditional/> */}
       {/* <LoginForm></LoginForm> */}
       {/* <Form></Form> */}
       {/* <FormValidation></FormValidation> */}
       {/* <SiginInForm /> */}
-      <Todo></Todo>
+      {/* <Todo></Todo> */}
 
       {/* <Router>
         <NavBar user={user}></NavBar>

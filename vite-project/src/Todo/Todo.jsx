@@ -7,8 +7,6 @@ const Todo = () => {
 
 
     let [data, setData] = useState({})
-    console.log(data)
-    console.log(todos)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -71,9 +69,9 @@ const Todo = () => {
     };
     return (
         <>
-            <div>
-                <input type="text" name="title" id="" value={data.title} onChange={handleChang} />
-                <input type="text" name="description" id="" value={data.description} onChange={handleChang} />
+            <div >
+                <input type="text" name="title" id="" value={data.title} onChange={handleChang} placeholder='title' />
+                <textarea name="description" id="" cols="30" rows="5" value={data.description} onChange={handleChang} placeholder='description'></textarea>
                 {
                     update ?
                         (
@@ -109,8 +107,8 @@ const Todo = () => {
                                     <td>{user.title}</td>
                                     <td>{user.description}</td>
                                     <td>
-                                        <button className='btn btn-primary' onClick={() => UpdateUser(user, index)} disabled={user.completed == true}>Update</button>
-                                        <button className='btn btn-success' onClick={() => deleteuser(user.id)} disabled={user.completed == true}>Delete</button>
+                                        <button className='btn btn-primary' onClick={() => UpdateUser(user, index)} disabled={user.completed == true}><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button className='btn btn-success' onClick={() => deleteuser(user.id)} disabled={user.completed == true}><i class="fa-solid fa-trash"></i></button>
                                     </td>
                                 </tr>
                             )
