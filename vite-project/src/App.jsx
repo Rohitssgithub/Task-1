@@ -18,20 +18,27 @@ const MyHome = React.lazy(() => import('./Pages/Home'));
 import FormValidation from './FormValidation/FormValidation';
 import SiginInForm from './FormValidation/SiginInForm';
 import Todo from './Todo/Todo';
-
+import CounterClock from './Components/CounterClock/CounterClock';
+import Crud from './Formik&Yup/Crud';
+import DisplayData from './Formik&Yup/DisplayData';
+import UseMemo from './Components/UseMemo/UseMemo';
+import UseCallBack from './Components/UseMemo/UseCallBack';
 
 const App = () => {
   let [user, SetUser] = useState(false)
   return (
     <>
       {/* <StopWatch /> */}
-      {/* <Counter /> */}
+      {/* <CounterClock></CounterClock> */}
       {/* <Conditional/> */}
       {/* <LoginForm></LoginForm> */}
       {/* <Form></Form> */}
       {/* <FormValidation></FormValidation> */}
       {/* <SiginInForm /> */}
-      <Todo></Todo>
+      {/* <Todo></Todo> */}
+      {/* <Crud></Crud> */}
+      {/* <UseMemo /> */}
+      <UseCallBack />
 
       {/* <Router>
         <NavBar user={user}></NavBar>

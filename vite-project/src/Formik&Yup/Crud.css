@@ -1,0 +1,29 @@
+.input-block {
+    position: relative;
+}
+
+.input-label {
+    display: block;
+}
+
+input:focus {
+    box-shadow: none !important;
+}
+
+.form-row {
+    background-color: skyblue;
+}
+
+.form-error {
+    position: absolute;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.error-icon {
+    position: absolute;
+    top: 32px;
+    right: 30px;
+    color: red;
+}
