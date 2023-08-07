@@ -7,7 +7,11 @@ const CounterClock = () => {
     let [min, Setmin] = useState(0)
     let [sec, Setsec] = useState(0)
 
+<<<<<<< HEAD
     const deadline = 'August 7, 2023 16:37:05';
+=======
+    const deadline = 'August 6, 2023 16:37:05';
+>>>>>>> 4a6d876f1f49db155a0393f731b720741815a85f
     let interval
 
     const getTime = () => {
@@ -49,4 +53,8 @@ const CounterClock = () => {
     )
 }
 
+<<<<<<< HEAD
 export default CounterClock
+=======
+export default CounterClock
+>>>>>>> 4a6d876f1f49db155a0393f731b720741815a85f
