@@ -7,7 +7,7 @@ const User = () => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const response = await axios.get('https://64ccec782eafdcdc851a772a.mockapi.io/users');
+                const response = await axios.get('https://64e34f09bac46e480e789213.mockapi.io/user');
                 SetData(response.data);
             } catch (error) {
                 console.error('Error fetching data:', error);

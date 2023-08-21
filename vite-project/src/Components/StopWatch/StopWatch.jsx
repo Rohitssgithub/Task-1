@@ -21,7 +21,7 @@ const Stop = () => {
                     SetMin(0);
                     SetSec(0)
                 }
-            }, 10)
+            }, 1000)
         }
         return () => {
             clearInterval(interval);

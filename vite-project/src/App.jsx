@@ -6,7 +6,7 @@ import Conditional from './Components/ConditionalRender/Conditional';
 import { BrowserRouter as Router, Route, Routes, } from "react-router-dom";
 import NavBar from './Components/Navbar/NavBar';
 import Register from './Pages/Register';
-import Home from './Pages/Home';
+// import Home from './Pages/Home';
 import Login from './Pages/Login';
 import ProtectedRoute from './Components/ProtectedRoute/ProtectedRoute';
 import Form from './Components/Form/Form';
@@ -19,38 +19,33 @@ import FormValidation from './FormValidation/FormValidation';
 import SiginInForm from './FormValidation/SiginInForm';
 import Todo from './Todo/Todo';
 import CounterClock from './Components/CounterClock/CounterClock';
-<<<<<<< HEAD
 import Crud from './Formik&Yup/Crud';
 import DisplayData from './Formik&Yup/DisplayData';
 import UseMemo from './Components/UseMemo/UseMemo';
 import UseCallBack from './Components/UseMemo/UseCallBack';
-=======
-
->>>>>>> 4a6d876f1f49db155a0393f731b720741815a85f
+import ComponentA from './Props/ComponentA/ComponentA';
+import ComponentB from './Props/ComponentB/ComponentB';
 
 const App = () => {
   let [user, SetUser] = useState(false)
   return (
     <>
+      {/* <ComponentA></ComponentA>
+      <ComponentB></ComponentB> */}
+
       {/* <StopWatch /> */}
-<<<<<<< HEAD
       {/* <CounterClock></CounterClock> */}
-=======
-      <Counter />
-      <CounterClock/>
->>>>>>> 4a6d876f1f49db155a0393f731b720741815a85f
+      {/* <Counter /> */}
+      {/* <CounterClock /> */}
       {/* <Conditional/> */}
       {/* <LoginForm></LoginForm> */}
       {/* <Form></Form> */}
       {/* <FormValidation></FormValidation> */}
       {/* <SiginInForm /> */}
       {/* <Todo></Todo> */}
-<<<<<<< HEAD
       {/* <Crud></Crud> */}
       {/* <UseMemo /> */}
-      <UseCallBack />
-=======
->>>>>>> 4a6d876f1f49db155a0393f731b720741815a85f
+      {/* <UseCallBack /> */}
 
       {/* <Router>
         <NavBar user={user}></NavBar>
@@ -68,13 +63,13 @@ const App = () => {
         </Suspense>
       </Router> */}
 
-      {/* <Router>
+      <Router>
         <Routes>
           <Route path='/' element={<User />} />
           <Route path='/updateuser/:id' element={<UpdateUser />} />
           <Route path='/createUser' element={<CreateUser />} />
         </Routes>
-      </Router> */}
+      </Router>
     </>
   )
 }

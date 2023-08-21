@@ -7,6 +7,7 @@ const CreateUser = () => {
 
     let [data, SetData] = useState({})
 
+    console.log(data)
     const handlechange = (e) => {
         SetData({ ...data, [e.target.name]: e.target.value })
     }
@@ -15,7 +16,7 @@ const CreateUser = () => {
         e.preventDefault();
         const postUser = async () => {
             try {
-                const response = await axios.post('https://64ccec782eafdcdc851a772a.mockapi.io/users', data);
+                const response = await axios.post('https://64e34f09bac46e480e789213.mockapi.io/user', data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
